@@ -34,7 +34,7 @@
             //bankAccount.Deposit(50);
             //bankAccount.WithDraw(23);
 
-            //Student anton = new();
+            //Student anton = new(); 
             //anton.PrintInfo();
 
             //Student maksim = new Student("Maks",18);
