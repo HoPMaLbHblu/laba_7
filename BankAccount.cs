@@ -6,28 +6,20 @@ using System.Threading.Tasks;
 
 namespace laba_7
 {
-    class BankAccount
+    internal class BankAccount
     {
-        private decimal balance = 0m;
+        string? AccountNumber;
+        private decimal Balance;
+        public BankAccount(string accountNumber, int Balance) { this.AccountNumber = accountNumber; this.Balance = Balance; }
+        public BankAccount() { AccountNumber = "1234567890"; Balance = 0; }
         public void Deposit(decimal amount)
         {
-            if (amount > 0)
-            {
-                balance += amount;
-                Console.WriteLine($"Пополнение: {amount}, Текущий баланс: {balance}");
-            }
+            this.Balance += amount;
         }
-        public void WithDraw(decimal amount)
+        public void Withdraw(decimal amount) { this.Balance -= amount; }
+        public void PrintBalance()
         {
-            if (amount > 0 && amount <= balance)
-            {
-                balance -= amount;
-                Console.WriteLine($"Снятие: {amount}. Остаток: {balance}");
-            }
-            else
-            {
-                Console.WriteLine("Недостаточно средств!");
-            }
+            Console.WriteLine($"Текущий баланс: {Balance}");
         }
     }
 }

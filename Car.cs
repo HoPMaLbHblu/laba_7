@@ -6,27 +6,21 @@ using System.Threading.Tasks;
 
 namespace laba_7
 {
-    class Car
+    internal class Car
     {
-        public string? model;
-        private int _currentSpeed;
-        protected string? engineType;
+        public string? Model;
+        public int Speed;
+        private int MaxSpeed;
+        public Car(string? Model, int MaxSpeed) { this.Model = Model; this.MaxSpeed = MaxSpeed; Speed = 0; }
+        public void Accelerate(int delta)
+        {
+            while (Speed <= MaxSpeed && Speed != delta && delta <= MaxSpeed) { Speed += delta; }
+        }
+        public void Brake()
+        {
+            Speed = 0;
+        }
 
-        public void Accelerate(int speed)
-        {
-            if (speed > 0)
-            {
-                _currentSpeed += speed;
-                Console.WriteLine($"Разгон до {_currentSpeed} км/ч");
-            }
-        }
-        private void CheckEngine()
-        {
-            Console.WriteLine("Проверка двигателя...");
-        }
-        protected void SetEngine(string type)
-        {
-            engineType = type;
-        }
+
     }
 }
